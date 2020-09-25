@@ -1,0 +1,23 @@
+fragment order on Order {
+  id
+  name
+  createdAt
+  updatedAt
+  detail
+  amount
+  delivery_time
+  user {
+    username
+  }
+}
+
+query OrdersConnection($limit: Int, $start: Int, $where: JSON) {
+  ordersConnection(sort: "createdAt:desc", limit: $limit, start: $start, where: $where) {
+    values {
+      ...order
+    }
+    aggregate {
+      count
+    }
+  }
+}

@@ -1,0 +1,4 @@
+/build
+/.next
+/out
+/src/services/generated
